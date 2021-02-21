@@ -1,0 +1,154 @@
+.intro__content {
+    width: 80%;
+    margin: 0 auto;
+    padding: $pd-5 0;
+
+    .intro__top {
+        width: 85%;
+        margin: 0 auto;
+        padding: $pd-7 0 110px;
+
+        .intro-brand {
+            width: 50%;
+            @include styleText($color-white-0, $fs-3 + 3, $fw-normal);
+            margin-bottom: $mg-1;
+        }
+
+        .intro-text {
+            width: 46%;
+            @include styleText($color-white-0, $fs-2, $fw-normal);
+            margin: $mg-1 0;
+
+            p:first-child {
+                margin-bottom: $mg-1;
+            }
+
+            a {
+                text-decoration-style: none;
+                color: $color-blue-1;
+            }
+        }
+
+        .btn-blue {
+            @include styleButton($color-blue-1, $color-blue-1, $pd-0 - 4, $pd-0 + 2);
+            border-radius: 1px;
+            color: $color-white-0;
+            margin-top: $mg-3;
+            transition: color .25s ease-out;
+
+            &:hover {
+                @include styleButton($color-blue-2, $color-blue-2, $pd-0 - 4, $pd-0 + 2);
+            }
+        }
+    }
+
+    .intro__bottom {
+        width: 85%;
+        margin: 0 auto;
+
+        .padding-intro {
+            padding: 0 $pd-0 - 1;
+
+            .intro__bottomItems {
+                position: relative;
+
+                .intro-line {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 20;
+                    background-color: $color-blue-1;
+
+                    width: 100%;
+                    height: 0px;
+                    opacity: 0;
+                    transition: height .16s, opacity .16s;
+                }
+
+                &:hover {
+                    .intro-line {
+                        height: 8px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Responsive 
+
+.intro__content {
+    @include responsive("extraX") {
+        width: 100%;
+        margin: 0 auto;
+
+        .intro__top {
+            .intro-brand {
+                width: 55%;
+                line-height: 40px;
+            }
+
+            .intro-text {
+                width: 68%;
+            }
+        }
+    }
+
+    @include responsive("large") {
+        width: 85%;
+        margin: 0 auto;
+        padding: $pd-4 0 $pd-5 0;
+
+        .intro__top {
+            padding-bottom: 70px;
+
+            .intro-brand {
+                width: 80%;
+                line-height: 40px;
+
+                @include styleText($color-white-0, $fs-3 - 2, $fw-normal);
+            }
+
+            .intro-text {
+                width: 95%;
+
+                @include styleText($color-white-0, $fs-1 + 1, $fw-normal);
+            }
+        }
+    }
+
+    @include responsive("medium") {
+        width: 100%;
+        margin: 0 auto;
+
+        .intro__top {
+            width: 90%;
+
+            .intro-brand {
+                width: 95%;
+                line-height: 40px;
+
+                @include styleText($color-white-0, $fs-3 - 2, $fw-normal);
+            }
+
+            .intro-text {
+                width: 94%;
+
+                @include styleText($color-white-0, $fs-1 + 1, $fw-normal);
+            }
+
+            .btn-blue {
+                width: 100%;
+            }
+        }
+
+        .intro__bottom {
+            width: 85%;
+
+            .padding-intro {
+                padding: $pd-3;
+            }
+        }
+    }
+}

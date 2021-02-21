@@ -1,0 +1,38 @@
+.environment__content {
+    width: 87%;
+    margin: 100px auto 0;
+    padding: 0 $pd-6 + 2 ;
+    @include styleText($color-white-0, $fs-2, $fw-normal);
+
+    .environment__contentTop {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: $mg-2 + 4;
+
+        .environment__topItems {
+            margin-right: $mg-2;
+        }
+    }
+
+    .environment__contentBottom {
+        margin-bottom: $mg-2 + 4;
+    }
+}
+
+//Responsive
+
+.environment__content {
+    @include responsive("extraX") {
+        width: 98%;
+        margin: 100px auto 0;
+    }
+
+    @include responsive("medium") {
+        width: 98%;
+        margin: 100px auto 0;
+
+        .environment__contentTop {
+            flex-wrap: wrap;
+        }
+    }
+}

@@ -1,0 +1,243 @@
+.contact__content {
+    width: 85%;
+    margin: 0 auto;
+
+    h3 {
+        @include styleText($color-white-0, $fs-3 + 4, $fw-normal);
+    }
+
+    .contact__line {
+        border: 0;
+        height: 1px;
+        margin: 30px -1px;
+        position: relative;
+
+        &::before {
+            content: "";
+            background: $color-black-2;
+            display: block;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+
+    .row {
+        margin: 0;
+    }
+
+    .col-6 {
+        padding: 0;
+    }
+
+    .contact__top {
+
+        p {
+            @include styleText($color-gray-2, $fs-2, $fw-normal);
+        }
+
+        .contact__formSignUp {
+            margin-top: $mg-2 + 4;
+            margin-bottom: $mg-0 + 5;
+            width: 80%;
+
+            .form-control {
+                cursor: pointer;
+                background-color: $color-black-4;
+                border: 1px solid $color-black-4;
+                border-radius: 0;
+                padding: $pd-3 - 2 $pd-1 + 1;
+                width: 70%;
+
+                &::placeholder {
+                    @include styleText($color-white-0, $fs-2 + 2, $fw-normal);
+                    font-style: italic;
+                }
+            }
+
+            .input-group-append {
+                margin-left: 0;
+                width: 30%;
+
+                .input-group-text {
+                    width: 100%;
+                    background: linear-gradient($color-black-5, $color-black-6);
+                    padding: $pd-3 - 2 $pd-6;
+                    border-bottom-color: $color-black-6;
+                    border-left-color: $color-black-7;
+                    border-right-color: $color-black-6;
+                    border-top-color: $color-black-5;
+                    border-radius: 0;
+                    text-align: left;
+                    @include styleText($color-gray-2, $fs-2, $fw-normal);
+
+                    i {
+                        margin-right: $mg-4 + 3;
+                    }
+                }
+            }
+        }
+
+        .contact__policy {
+
+            // position: relative;
+            .contact-checkbox {
+                display: block;
+                position: relative;
+                font-size: $fs-3;
+                user-select: none;
+
+                input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    margin-right: 10px;
+
+                    &:checked~.checkmark::after {
+                        display: block;
+                    }
+                }
+
+                .checkmark {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 18px;
+                    width: 18px;
+                    background-color: $color-black-7;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+
+
+                        top: 50%;
+                        left: 50%;
+                        width: 5px;
+                        height: 10px;
+                        border: solid $color-white-0;
+                        border-width: 0 3px 3px 0;
+                        transform: translate(-50%, -50%) rotate(45deg);
+                    }
+                }
+            }
+
+            .label-text {
+                margin-left: 30px;
+                @include styleText($color-gray-2, $fs-2 - 1, $fw-normal);
+
+                span {
+                    color: $color-white-0;
+                }
+            }
+        }
+        .contact__social {
+            margin: $mg-0 -$mg-2;
+            i {
+                @include styleText($color-gray-2, $fs-0 + 2 ,$fw-normal);
+                margin: $mg-1 - 1 $mg-2 + 5;
+                width: 30px;
+            }
+        }
+    }
+
+    .contact__bottom {
+        text-align: center;
+        margin: $mg-3 0 56px 0;
+        img {
+            width: 30%;
+            cursor: pointer;
+        }
+        .img-contact-2 {
+            width: 45%;
+        }
+    }
+}
+
+//Responsive
+
+.contact__content {
+    @include responsive("extraX") {
+        width: 97%;
+        margin: 0 auto;
+    }
+    
+    @include responsive("extra-large") {
+
+        .col-6 {
+            flex: none;
+            max-width: 99%;
+        }
+
+        .contact__top {
+            .contact__formSignUp {
+                width: 100%;
+
+                .form-control {
+                    width: 60%;
+                }
+
+                .input-group-append {
+                    width: 40%;
+
+                    .input-group-text {
+                        width: 95%;
+                    }
+                }
+            }
+        }
+        .contact__bottom {
+            img {
+                width: 45%;
+                cursor: pointer;
+            }
+            .img-contact-2 {
+                width: 60%;
+            }
+        }
+    }
+
+    @include responsive("large") {
+        .contact__bottom{
+            img {
+                width: 55%;
+                cursor: pointer;
+            }
+            .img-contact-2 {
+                width: 70%;
+            }
+        }
+    }
+    @include responsive("medium") {
+        .col-12 {
+            margin: $mg-2 + 5 0;
+        }
+
+        .contact__bottom{
+            img {
+                width: 22%;
+                cursor: pointer;
+            }
+            .img-contact-2 {
+                width: 32%;
+            }
+        }
+    }
+
+    @include responsive("small") {
+        .contact__bottom{
+            img {
+                width: 32%;
+                cursor: pointer;
+            }
+            .img-contact-2 {
+                width: 48%;
+            }
+        }
+    }
+}
+

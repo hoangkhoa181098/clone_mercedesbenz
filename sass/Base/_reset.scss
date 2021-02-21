@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+    @include styleText($color-white-0, $fs-0, $fw-normal);
+    background-color: $color-black-0;
+}
+
+body {
+    position: relative;
+}

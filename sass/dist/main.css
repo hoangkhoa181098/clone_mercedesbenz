@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #000;
+}
+
+header {
+  margin: 0 auto;
+  width: 75%;
+}
+header .header__top {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+header .header__top p:first-child i {
+  font-size: 9px;
+  border: 1.5px solid #fff;
+  padding: 3px 5px;
+}

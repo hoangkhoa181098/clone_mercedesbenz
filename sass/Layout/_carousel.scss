@@ -1,0 +1,276 @@
+.carousel__content {
+    width: 88%;
+    margin: 0 auto;
+    padding-top: 130px;
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 0;
+        top: 50%;
+        left: 50px;
+        opacity: 1;
+        transform: translateY(-50%);
+        z-index: 140;
+
+        i {
+            @include styleText($color-white-0, $fs-4 + 6, $fw-icon);
+            transition: color .25s;
+            height: 45px;
+
+            &:hover {
+                color: $color-gray-3;
+            }
+        }
+    }
+
+    .carousel-control-next {
+        left: unset;
+        right: 50px;
+    }
+
+    .carousel-item {
+        .carousel-caption {
+            top: 6%;
+            left: 12%;
+            text-align: left;
+
+            .caption-brand {
+                width: 45%;
+                @include styleText($color-white-0, $fs-4 + 6, $fw-normal);
+                line-height: 55px;
+
+                margin-bottom: $mg-2;
+
+                transform: translateY(-50px);
+                opacity: 0;
+                transition: transform .5s ease-out, opacity .5s ease-out;
+                transition-delay: .5s;
+            }
+
+            .caption-dark {
+                @include styleText($color-black-2, $fs-4 + 6, $fw-normal);
+            }
+
+            .caption-btn-dark {
+                @include styleButton($color-black-2, $color-black-2, $pd-0 - 3, $pd-1 + 5);
+                color: $color-gray-3;
+                transform: translateY(-30px);
+                opacity: 0;
+                transition: color .25s ease-out, transform .5s ease-out, opacity .5s ease-out;
+                transition-delay: .8s;
+
+                &:hover {
+                    background-color: $color-black-3;
+                    border: 1px solid $color-black-3;
+                    color: #f0f0f0;
+                }
+            }
+        }
+
+        .carousel-caption-small {
+            position: absolute;
+            bottom: 16px;
+            left: 12%;
+
+            transform: translateY(-30px);
+            opacity: 0;
+            transition: transform .5s ease-out, opacity .5s ease-out;
+            ;
+            transition-delay: .8s;
+
+            p {
+                @include styleText($color-white-0, $fs-2, $fw-normal);
+            }
+
+            .caption-dark-small {
+                @include styleText($color-black-2, $fs-2, $fw-normal);
+            }
+        }
+    }
+
+    .carousel-item.active {
+        .carousel-caption {
+
+            .caption-brand,
+            .caption-btn-dark {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        .carousel-caption-small {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    .carousel__searchBar {
+        padding: $pd-2;
+        background-color: $color-black-1;
+
+        .input-group {
+            width: 80%;
+            margin: 0 auto;
+
+            .form-control {
+                padding: .355rem 1rem .215rem 1rem;
+                background-color: $color-white-1;
+                border: none;
+                border-radius: 0;
+                color: $color-black-2;
+                font-size: $fs-0;
+
+                &::placeholder {
+                    opacity: .5;
+                }
+            }
+
+            .input-group-append {
+                margin-left: 0;
+
+                .input-group-text {
+                    padding: 1px 1.43rem 1px 1.43rem;
+                    background-color: $color-white-1;
+                    border: none;
+                    border-radius: 0;
+                    color: #333c;
+                }
+            }
+        }
+    }
+}
+
+//Responsive 
+
+.carousel__content {
+    @include responsive("extraX") {
+        width: 100%;
+        margin: 0 auto;
+        .carousel__searchBar {
+            .input-group {
+                width: 88%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @include responsive("extra") {
+        .carousel-control-next {
+            right: 70px;
+        }
+    }
+
+    @include responsive("large") {
+        .carousel-item {
+            height: 500px;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .carousel-caption {
+                .caption-brand {
+                    @include styleText($color-white-0, $fs-3, $fw-normal);
+                    line-height: 40px;
+                }
+
+                .caption-dark {
+                    color: $color-black-2;
+                }
+            }
+        }
+
+        .carousel__searchBar {
+            .input-group {
+                width: 78%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @include responsive("medium") {
+        height: 80vh;
+
+        .carousel-control-prev {
+            top: 20%;
+            left: 50px;
+        }
+
+        .carousel-control-next {
+            top: 20%;
+            right: 50px;
+        }
+
+        .carousel-item {
+            //Hiện bg white 
+            height: 70vh;
+            background-color: $color-white-0;
+
+            img {
+                height: 35vh; // để hình phân nữa cho hiện cái bg
+            }
+
+            .carousel-caption {
+                display: block !important;
+                top: 50%;
+                left: 5%;
+
+                .caption-brand {
+                    width: 90%;
+                    @include styleText($color-black-2, $fs-3, $fw-normal);
+                    line-height: 35px;
+                }
+
+                .caption-dark {
+                    display: block !important;
+                    @include styleText($color-black-2, $fs-3, $fw-normal);
+                }
+            }
+
+            .carousel-caption-small {
+                display: block !important;
+                position: absolute;
+                bottom: 0;
+                left: 5%;
+
+                p {
+                    @include styleText($color-black-2, $fs-2, $fw-normal);
+                }
+
+                .caption-dark-small {
+                    @include styleText($color-black-2, $fs-2, $fw-normal);
+                }
+            }
+        }
+
+        .carousel__searchBar {
+            .input-group {
+                width: 98%;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @include responsive("small") {
+        height: 68vh;
+        .carousel-item {
+            height: 60vh;
+            img {
+                height: 25vh; // để hình phân nữa cho hiện cái bg
+            }
+
+            .carousel-caption {
+                display: block !important;
+                top: 40%;
+                left: 5%;
+
+                .caption-brand {
+                    width: 90%;
+                    @include styleText($color-black-2, $fs-3, $fw-normal);
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}

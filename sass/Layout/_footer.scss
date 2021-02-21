@@ -1,0 +1,137 @@
+.footer__content {
+    width: 85%;
+    margin: 0 auto $mg-1;
+    padding-bottom: $pd-4;
+
+    .row {
+        margin: 0;
+    }
+
+    p {
+        @include styleText($color-gray-2, $fs-2, $fw-normal);
+        margin-bottom: $mg-3;
+
+        span {
+            color: $color-white-0;
+            transition: color .25s;
+            cursor: pointer;
+
+            &:hover {
+                color: $color-blue-1;
+            }
+        }
+    }
+
+    .footer__left {
+        span:first-child {
+            @include styleText($color-blue-1, $fs-0, $fw-normal);
+            cursor: pointer;
+
+            &::after {
+                content: "";
+                background-color: $color-blue-1;
+                display: inline-block;
+                margin: 0 $mg-0 + 3;
+                height: 11px;
+                top: 1px;
+                width: 1px;
+            }
+        }
+    }
+
+    .footer__right {
+        display: flex;
+
+        .footer__navbar {
+            span {
+                @include styleText($color-gray-5, $fs-2, $fw-normal);
+                transition: color .25s;
+                cursor: pointer;
+                margin-right: $mg-1 - 4;
+
+                &:hover {
+                    color: $color-blue-1;
+                }
+            }
+        }
+
+        .footer__scrollTop {
+            display: flex;
+            flex-direction: row;
+
+            .scrollTop {
+                @include styleText($color-gray-5, $fs-2, $fw-normal);
+                text-decoration: none;
+                transition: color .25s;
+                margin-left: 30px;
+
+                i {
+                    margin-left: $mg-0 - 5;
+                }
+
+                &:hover {
+                    color: $color-blue-1;
+                }
+            }
+        }
+    }
+}
+
+//Responsive 
+
+.footer__content {
+    @include responsive("extraX") {
+        width: 97%;
+        margin: 0 auto;
+    }
+
+    @include responsive("extra-large") {
+        .col {
+            padding: 0;
+        }
+
+        .col-5,
+        .col-7 {
+            flex: none;
+            max-width: 100%;
+        }
+
+        .footer__right {
+            display: block;
+
+            .footer__navbar {
+                width: 50%;
+                margin: $pd-6 0;
+
+                span {
+                    margin: $mg-2 $mg-0 $mg-2 0;
+                }
+            }
+
+            .footer__scrollTop {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    @include responsive("medium") {
+        width: 99%;
+        margin: 0 auto $mg-3;
+
+        .footer__left {
+            text-align: center;
+            margin-bottom: $mg-2;
+        }
+
+        .footer__right {
+            .footer__navbar {
+                width: 80%;
+                margin: $pd-0 0;
+
+                span {
+                    margin: $mg-2 $mg-0 $mg-2 0;
+                }
+            }
+        }
+    }
+}
